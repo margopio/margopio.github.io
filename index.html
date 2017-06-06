@@ -92,7 +92,7 @@
         <!-- //clientsDropDown -->
 
         <script>  
-            var socket = io.connect();
+            var socket = io.connect("https://limitless-caverns-28604.herokuapp.com");
             $('form').submit(function() {        
                 socket.emit('chat message', $('#m').val());
                 $('#m').val('');
