@@ -84,22 +84,7 @@
         <h4 style="margin-left: 1em">Online Chat with Cross-Origin Resource Sharing (CORS), and Location-based Job Oepenings</h4>
   
         <div id="map"></div>
-        
-        <div id="clientsDropDown">
-            <p id="clientsOpen">Online Chat</p>
-
-            <div id="clientsDashboard">
-                <div id="clientsCTA"> 
-                    <ul id="messages"></ul>
-                    <form action="">
-                        <input id="m" autocomplete="off" /><button>Send</button>
-                    </form>
-                </div>   
-            </div>
-            <!-- /clientsDashboard -->
-        </div>
-        <!-- //clientsDropDown -->
-
+                
         <script> 
             // First, create an object containing LatLng and population for each city.
             var citymap = {
@@ -202,27 +187,7 @@
             initMap();
 
         </script>
-
-        <script>  
-            var socket = io.connect("https://limitless-caverns-28604.herokuapp.com");
-            $('form').submit(function() {        
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                return false;
-            });
-
-            socket.on('chat message', function(msg) {        
-                $('#messages').append($('<li>').text(msg));        
-            }); 
-
-            $('#clientsOpen').click(function () {
-                $('#clientsDropDown #clientsDashboard').slideToggle({
-                direction: "up"
-                }, 300);
-                $(this).toggleClass('clientsClose');
-            }); // end click
-
-        </script> 
+        
     </body>
 
 </html>        
