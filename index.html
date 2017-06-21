@@ -109,72 +109,86 @@
                 
         <script> 
             // First, create an object containing LatLng and population for each city.
-            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            //var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            var iconFlag = "http://maps.google.com/mapfiles/kml/shapes/flag.png";
 
             var citymap = {
                 losangeles: {
                     center: {lat: 34.050095, lng: -118.253165},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bar-grill"
                 },
                 houston: {
                     center: {lat: 29.761055, lng: -95.462707},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bbq"  
                 },  
                 washington: {
                     center: {lat: 39.058614, lng: -77.451909},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bowling-alley"  
                 },
                 colorado: {
                     center: {lat: 39.749121, lng: -104.991165},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/brewery"  
                 },
                 grapevine : {
                     center: {lat: 32.890213, lng: -97.094444},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/casinos"  
                 },
                 kansascity : {
                     center: {lat: 39.085885, lng: -94.584811},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/comedy-clubs"  
                 },
                 helena  : {
                     center: {lat: 46.589421, lng: -112.038605},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/country-clubs"  
                 },
                 milwaukee : {
                     center: {lat: 43.038971, lng: -87.908267},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/eatertainment"  
                 },
                 westloopriverside : {
                     center: {lat: 41.881252, lng: -87.639118},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/greek-cuisine"  
                 },
                 sandiego : {
                     center: {lat: 32.7341871, lng: -117.216478},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/hospital"  
                 },
                 westdesmoines : {
                     center: {lat: 41.561931, lng: -93.782819},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/mexican-cuisine"  
                 },
                 oakbrookterrace : {
                     center: {lat: 41.846219, lng: -87.984889},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/pizza"  
                 },
                 lakeoswego : {
                     center: {lat: 45.422215, lng: -122.740823},
-                    icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/point-of-sale-for-senior-living-communities"  
                 }
             };
@@ -210,18 +224,21 @@
                     //     radius: 40000
                     // });
 
-                    var cityCircle = new google.maps.Marker({
+                    var marker = new google.maps.Marker({
                         position: citymap[city].center,
                         icon: citymap[city].icon,
+                        url: citymap[city].url,
                         map: map
                     });
 
                     
-                    google.maps.event.addListener(cityCircle, 'click', function(ev){       
-                        var str = this.getCenter().toString().split(",");      
-                        var lat = str[0].slice(1);
-                        var lng = str[1];     
-                        getURL(lat, lng);
+                    google.maps.event.addListener(marker, 'click', function(ev){       
+                        // var str = this.getCenter().toString().split(",");      
+                        // var lat = str[0].slice(1);
+                        // var lng = str[1];     
+                        // getURL(lat, lng);
+
+                         window.location.href = this.url;
                     });
                 }  
             }
