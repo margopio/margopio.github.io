@@ -117,78 +117,91 @@
                     center: {lat: 34.050095, lng: -118.253165},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "Gas Company Tower 555 West Fifth Street 31st Floor, Los Angeles",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bar-grill"
                 },
                 houston: {
                     center: {lat: 29.761055, lng: -95.462707},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "777 S Post Oak Lane One Riverway Suite 1700, Houston",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bbq"  
                 },  
                 washington: {
                     center: {lat: 39.058614, lng: -77.451909},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "20130 Lakeview Center Plaza Suite 400, Ashburn",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/bowling-alley"  
                 },
                 colorado: {
                     center: {lat: 39.749121, lng: -104.991165},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "Denver Place 999 18th Street, Suite 3000, Denver",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/brewery"  
                 },
                 grapevine : {
                     center: {lat: 32.890213, lng: -97.094444},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "1452 Hughes Road, Grapevine",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/casinos"  
                 },
                 kansascity : {
                     center: {lat: 39.085885, lng: -94.584811},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "Two Pershing Square 2300 Main Street Suite 900, Kansas City",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/comedy-clubs"  
                 },
                 helena  : {
                     center: {lat: 46.589421, lng: -112.038605},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "314 N. Last Chance Gulch, 3rd Floor, Helena",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/country-clubs"  
                 },
                 milwaukee : {
                     center: {lat: 43.038971, lng: -87.908267},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "250 E Wisconsin Ave 18th Floor, Milwaukee",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/eatertainment"  
                 },
                 westloopriverside : {
                     center: {lat: 41.881252, lng: -87.639118},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "10 South Riverside Plaza Suite 875, Chicago",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/greek-cuisine"  
                 },
                 sandiego : {
                     center: {lat: 32.7341871, lng: -117.216478},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "Liberty Station 2305 Historic Decatur Road,Suite 100, San Diego",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/hospital"  
                 },
                 westdesmoines : {
                     center: {lat: 41.561931, lng: -93.782819},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "5550 Wild Rose Lane Suite 400, West Des Moines",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/mexican-cuisine"  
                 },
                 oakbrookterrace : {
                     center: {lat: 41.846219, lng: -87.984889},
-                    //icon: iconBase + 'info-i_maps.png',
+                    //icon: iconBase + 'info-i_maps.png',                    
                     icon: iconFlag,
+                    title: "One Lincoln Centre (Main HQ) 18W140 Butterfield Rd 15th Floor, Oakbrook Terrace",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/pizza"  
                 },
                 lakeoswego : {
                     center: {lat: 45.422215, lng: -122.740823},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
+                    title: "5 Centerpointe Dr #400, Lake Oswego",
                     url: "http://we-are-pos.azurewebsites.net/index.php/markets/point-of-sale-for-senior-living-communities"  
                 }
             };
@@ -210,6 +223,28 @@
                     mapTypeId: 'roadmap'
                 });
 
+                var contentString = '<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<h1 id="firstHeading" class="firstHeading">Office Location Info</h1>'+
+                    '<div id="bodyContent">'+
+                    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                    'sandstone rock formation in the southern part of the '+
+                    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+                    'south west of the nearest large town, Alice Springs; 450&#160;km '+
+                    '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+                    'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+                    'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+                    'Aboriginal people of the area. It has many springs, waterholes, '+
+                    'rock caves and ancient paintings. Uluru is listed as a World '+
+                    'Heritage Site.</p>'+                    
+                    '</div>'+
+                    '</div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
                 // Construct the circle for each value in citymap.  
                 for (var city in citymap) {                    
                     // Add the circle for this city to the map.
@@ -228,6 +263,7 @@
                         position: citymap[city].center,
                         icon: citymap[city].icon,
                         url: citymap[city].url,
+                        title: citymap[city].title,
                         map: map
                     });
 
@@ -238,8 +274,10 @@
                         // var lng = str[1];     
                         // getURL(lat, lng);
 
-                         //window.location.href = this.url;
-                         window.open(this.url);
+                        //window.location.href = this.url;
+                        //infowindow.open(map, marker);
+
+                        window.open(this.url);
                     });
                 }  
             }
