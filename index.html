@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>ServingIntel Static Site</title>
+        <title>Sample Static Site</title>
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -83,13 +83,13 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="navbar-right">
-                        <a href="http://servingintel.pos.partners/"><span class="glyphicon glyphicon-book"></span>ServingIntel Site</a>
+                        <a href="http://servingintel.pos.partners/"><span class="glyphicon glyphicon-book"></span> ServingIntel Site</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <h4 style="margin-left: 1em">Online Chat (CORS) and Office Locations</h4>
+        <h4 style="margin-left: 1em">Showing Office Locations with Online Chat</h4>
   
         <div id="map"></div>
 
@@ -115,96 +115,89 @@
             var iconFlag = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
             var citymap = {
+                sanfrancisco : {
+                    center: {lat: 37.792260, lng: -122.403490},
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
+                    title: "315 Montgomery Street 8th and 9th Floors San Francisco, California",
+                    url: "https://www.servingintel.com/contact"
+                },
                 losangeles: {
-                    center: {lat: 34.050095, lng: -118.253165},
+                    center: {lat: 34.050890, lng: -118.459990},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "Gas Company Tower 555 West Fifth Street 31st Floor, Los Angeles",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/bar-grill"
+                    title: "11601 Wilshire Blvd. 5th Floor, Los Angeles, California",
+                    url: "https://www.servingintel.com/contact"
                 },
-                houston: {
-                    center: {lat: 29.761055, lng: -95.462707},
+                sandiego: {
+                    center: {lat: 32.734170, lng: -117.216460},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "777 S Post Oak Lane One Riverway Suite 1700, Houston",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/bbq"  
+                    title: "Liberty Station 2305 Historic Decatur Road Ste 100, San Diego, California",
+                    url: "https://www.servingintel.com/contact"
+                },
+                denver: {
+                    center: {lat: 39.745710, lng: -104.988020},
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
+                    title: "Denver Place 999 18th Street, Suite 3000 Denver, Colorado",
+                    url: "https://www.servingintel.com/contact"  
                 },  
-                washington: {
-                    center: {lat: 39.058614, lng: -77.451909},
+                lakemary: {
+                    center: {lat: 28.776350, lng: -81.357920},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "20130 Lakeview Center Plaza Suite 400, Ashburn",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/bowling-alley"  
+                    title: "Lake Mary 801 International Parkway 5th Floor Lake Mary, Florida",
+                    url: "https://www.servingintel.com/contact"  
                 },
-                colorado: {
-                    center: {lat: 39.749121, lng: -104.991165},
+                oakbrookterrace: {
+                    center: {lat: 41.847030, lng: -87.984160},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "Denver Place 999 18th Street, Suite 3000, Denver",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/brewery"  
+                    title: "One Lincoln Centre (Main HQ) 18W140 Butterfield Rd 15th Floor Oakbrook Terrace, Illinois",
+                    url: "https://www.servingintel.com/contact"  
                 },
-                grapevine : {
-                    center: {lat: 32.890213, lng: -97.094444},
+                westdesmoines : {
+                    center: {lat: 41.562120, lng: -93.783250},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "1452 Hughes Road, Grapevine",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/casinos"  
+                    title: "West Des Moines 5550 Wild Rose Lane Suite 400, West Des Moines, Iowa",
+                    url: "https://www.servingintel.com/contact"  
+                },                
+                helena  : {
+                    center: {lat: 46.589421, lng: -112.038605},
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
+                    title: "314 N. Last Chance Gulch, 3rd Floor, Helena, Montana",
+                    url: "https://www.servingintel.com/contact"  
                 },
                 kansascity : {
                     center: {lat: 39.085885, lng: -94.584811},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "Two Pershing Square 2300 Main Street Suite 900, Kansas City",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/comedy-clubs"  
+                    title: "Two Pershing Square 2300 Main Street Suite 900, Kansas City, Missouri",
+                    url: "https://www.servingintel.com/contact"   
                 },
-                helena  : {
-                    center: {lat: 46.589421, lng: -112.038605},
+                pittsburgh  : {
+                    center: {lat: 40.446010, lng: -80.018410},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
-                    title: "314 N. Last Chance Gulch, 3rd Floor, Helena",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/country-clubs"  
+                    title: "322 North Shore Drive Building 1B, Suite 200, Pittsburgh, Pennsylvania",
+                    url: "https://www.servingintel.com/contact"  
                 },
+                houston  : {
+                    center: {lat: 29.428350, lng: -98.513100},
+                    //icon: iconBase + 'info-i_maps.png',
+                    icon: iconFlag,
+                    title: "3730 Kirby Drive River Oaks Bldg, Suite 1200, Houston, Texas",
+                    url: "https://www.servingintel.com/contact"  
+                },               
                 milwaukee : {
                     center: {lat: 43.038971, lng: -87.908267},
                     //icon: iconBase + 'info-i_maps.png',
                     icon: iconFlag,
                     title: "250 E Wisconsin Ave 18th Floor, Milwaukee",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/eatertainment"  
-                },
-                westloopriverside : {
-                    center: {lat: 41.881252, lng: -87.639118},
-                    //icon: iconBase + 'info-i_maps.png',
-                    icon: iconFlag,
-                    title: "10 South Riverside Plaza Suite 875, Chicago",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/greek-cuisine"  
-                },
-                sandiego : {
-                    center: {lat: 32.7341871, lng: -117.216478},
-                    //icon: iconBase + 'info-i_maps.png',
-                    icon: iconFlag,
-                    title: "Liberty Station 2305 Historic Decatur Road,Suite 100, San Diego",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/hospital"  
-                },
-                westdesmoines : {
-                    center: {lat: 41.561931, lng: -93.782819},
-                    //icon: iconBase + 'info-i_maps.png',
-                    icon: iconFlag,
-                    title: "5550 Wild Rose Lane Suite 400, West Des Moines",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/mexican-cuisine"  
-                },
-                oakbrookterrace : {
-                    center: {lat: 41.846219, lng: -87.984889},
-                    //icon: iconBase + 'info-i_maps.png',                    
-                    icon: iconFlag,
-                    title: "One Lincoln Centre (Main HQ) 18W140 Butterfield Rd 15th Floor, Oakbrook Terrace",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/pizza"  
-                },
-                lakeoswego : {
-                    center: {lat: 45.422215, lng: -122.740823},
-                    //icon: iconBase + 'info-i_maps.png',
-                    icon: iconFlag,
-                    title: "5 Centerpointe Dr #400, Lake Oswego",
-                    url: "http://we-are-pos.azurewebsites.net/index.php/markets/point-of-sale-for-senior-living-communities"  
+                    url: "https://www.servingintel.com/contact"  
                 }
             };
 
